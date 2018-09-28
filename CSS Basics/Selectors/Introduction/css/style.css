@@ -1,4 +1,14 @@
-/*TYPES SELECTORS */
+/* WEB FONT */
+
+@font-face{
+  font-family: 'Abolition Regular';
+  src: url('../fonts/abolition-regular-webfont.eot');
+  src: url('../fonts/abolition-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/abolition-regular-webfont.woff') format('woff'),
+       url('../fonts/abolition-regular-webfont.ttf') format('truetype');
+}
+
+/*BASE STYLES */
 
 * {
   box-sizing: border-box;
@@ -10,15 +20,21 @@ body{
   font: 1em/1.5 Helvetica, Arial, sans-serif;
 }
 
+h1,
+h2 {
+  font-family:'Abolition Regular', Helvetica, Arial, sans-serif;
+}
+
 h1 {
   font-size : 5.625rem;
-  color:rgba(255, 255, 255, 1);
   text-transform:uppercase;
   font-weight:normal;
   line-height:1.3em;
+  text-shadow:1px 1px 1px rgba(0,0,0,.8);
+  margin: 12px 0 0;
 }
 
-h2{
+h2 {
   font-size: 3.3125rem;
   font-weight:normal;
   margin-bottom:.5em;
@@ -30,10 +46,23 @@ h3 {
   margin-bottom:1.7em;
 }
 
-img{
+img {
   max-width:100%;
   margin-bottom:20px;
+  border-radius:10px;
 }
+
+ol,
+ul {
+  list-style-position:inside;
+  padding-left:0;
+  margin:30px 0;
+}
+
+li {
+  margin-bottom:10px;
+}
+
 /*ID SELECTORS*/
 
 #main-footer{
@@ -47,12 +76,24 @@ img{
 .main-header {
   padding-top:170px;
   height:850px;
-  background: #ffa949 url('../img/mountains.jpg') no-repeat center / cover;
+  color:white;
+  background: linear-gradient(#ffa949, transparent 90%),
+              linear-gradient(0deg, white, transparent),
+              #ffa949 url('../img/mountains.jpg') no-repeat center / cover;
 }
 
 .title{
-  color:#fff;
   font-size:1.625rem; /*26px /16px */
+  letter-spacing:0.065em;
+  font-weight:200;
+  border-bottom:2px solid;
+  padding-bottom:10px;
+}
+
+.intro{
+  font-size:1.25em;
+  line-height:1.6;
+  color:initial;
 }
 
 .primary-content,
@@ -113,10 +154,15 @@ a:focus {
   border-top:10px solid #ffa949;
   padding: 18% 24%;
   margin:160px 0 160px 0;
+  background : #435a52 url('../img/bear.jpg') no-repeat center;
+  background-size:cover;
+  box-shadow: inset 0 0 50px 10px rgba(0,0,0, 1);
+  border-radius:10px;
 }
 
 .arrow {
   width: 50px;
+  margin-top:150px;
 }
 
 /* ---- FLOATED COLUMNS ----- */
@@ -124,4 +170,39 @@ a:focus {
 .resorts,
 .tips {
   width:46.5%;
+}
+
+.tips{
+  float:left;
+}
+
+.resorts{
+  float:right;
+}
+
+/* ---- FLOAT CLEAR FIX --- */
+
+.group:after{
+  content:"";
+  display:table;
+  clear:both;
+}
+
+
+/* ---- MEDIA QUERIES ---- */
+
+@media (max-width: 1024px) {
+  .primary-content,
+  .secondary-content{
+    width:90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .primary-content,
+  .secondary-content{
+    width:100%;
+    padding:20px;
+    border:none;
+  }
 }
